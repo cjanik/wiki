@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block controls %}
+  {% if user %}
+    <a class = "gray-link" href = "/_edit{{path}}">edit</a>
+  {% endif %}
+    <a class = "gray-link" href = "{{path}}">view</a>
+{% endblock %}
+
+{% block content %}
+
+
+
+    {% for p in posts %}
+       <div class="{{ loop.cycle('odd', 'even') }} hist">
+       {{p.last_modified.strftime('%c')}} | {{p.content[:100]}}
+
+     <div class="history-links">
+       <a href="{{path}}?v={{p.key().id()}}">view</a>
+       {% if user %}
+         <a href="/_edit{{path}}?v={{p.key().id()}}">edit</a>
+       {% endif %}
+     </div>
+       <br><br>
+       </div>
+    {% endfor %}
+
+
+  
+{% endblock %}

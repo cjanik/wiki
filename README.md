@@ -1,5 +1,5 @@
 # wiki
 
-generic wiki built with python and jinja2
+generic wiki built with python and jinja2. runs on google app engine.
 
-visit a url to create that page
+view the demo at http://infinite-sierra.appspot.com/
